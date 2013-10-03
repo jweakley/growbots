@@ -1,4 +1,4 @@
 demeter
 =======
 
-A node based Aquaponics management system.
+A node based aquaponics management system.
