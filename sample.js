@@ -1,10 +1,11 @@
 var five = require('johnny-five'),
-    demeter = require('./lib/demeter.js');
-
+    demeter = require('./lib/demeter.js'),
+    loggingFrequency = 5000,
+    RaspiCam = require("raspicam");
 
 five.Board().on("ready", function() {
-  var loggingFrequency = 1000,
-      growbed = new demeter.Environment(
+
+  var growbed = new demeter.Environment(
         'Main Growbed',
         {
           lightLevel: new five.Sensor({ pin: "A2", freq: loggingFrequency }),
@@ -14,7 +15,12 @@ five.Board().on("ready", function() {
       fishTank = new demeter.Environment(
         'Fish Tank',
         {
-          waterDepth: new five.Sensor({ pin: "A1", freq: loggingFrequency })
+          waterDepth: new five.Sensor({ pin: "A1", freq: loggingFrequency }),
+          camera: new RaspiCam({
+            mode: 'photo',
+            output: './pictures/fish_tank.jpg',
+            timelapse: loggingFrequency
+          })
         }
       );
 });
