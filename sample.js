@@ -18,7 +18,7 @@ five.Board().on("ready", function() {
           waterDepth: new five.Sensor({ pin: "A1", freq: loggingFrequency }),
           camera: new RaspiCam({
             mode: 'photo',
-            output: './pictures/fish_tank.jpg',
+            output: require('path').resolve('./tmp/pictures/fish_tank.jpg'),
             timelapse: loggingFrequency
           })
         }

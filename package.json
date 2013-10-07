@@ -12,8 +12,7 @@
     "raspicam": ""
   },
   "engines": {
-      "node": "0.10.x",
-      "npm": "1.3.x"
+      "node": "0.10.x"
   },
   "homepage": "https://github.com/jweakley/demeter",
   "license": "MIT",
