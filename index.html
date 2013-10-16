@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+  <head><title>Hello Node</title></head>
+  <body>
+    <h1>Aquaponics</h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+      var socket = io.connect('http://localhost');
+      socket.on('Main Growbed Light', function (data) {
+        $("#Main_Growbed_Light").text(data.calibratedResults);
+        console.log(data);
+        console.log(data.calibratedResults);
+      });
+      socket.on('Main Growbed Temperature', function (data) {
+        $("#Main_Growbed_Temperature").text(data.calibratedResults);
+      });
+      socket.on('Fish Tank Water Depth', function (data) {
+        $("#Fish_Tank_Water_Depth").text(data.calibratedResults);
+      });
+    </script>
+    <p id="Main_Growbed_Light">
+      LIGHT
+    </p>
+    <p id="Main_Growbed_Temperature" />
+      TEMP
+    </p>
+    <p id="Fish_Tank_Water_Depth" />
+      DEPTH
+    </p>
+  </body>
+</html>

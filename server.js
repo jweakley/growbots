@@ -1,6 +1,25 @@
+var app = require('http').createServer(handler)
+  , io = require('socket.io').listen(app)
+  , fs = require('fs')
+
+app.listen(80);
+
+function handler (req, res) {
+  fs.readFile(__dirname + '/index.html',
+  function (err, data) {
+    if (err) {
+      res.writeHead(500);
+      return res.end('Error loading index.html');
+    }
+
+    res.writeHead(200);
+    res.end(data);
+  });
+}
+
 var five = require('johnny-five'),
     demeter = require('./lib/demeter.js'),
-    loggingFrequency = 5000,
+    loggingFrequency = 1000,
     RaspiCam = require("raspicam");
 
 five.Board().on("ready", function() {
@@ -10,7 +29,8 @@ five.Board().on("ready", function() {
         {
           lightLevel: new five.Sensor({ pin: "A2", freq: loggingFrequency }),
           temperature: new five.Sensor({ pin: "A0", freq: loggingFrequency })
-        }
+        },
+        io
       ),
       fishTank = new demeter.Environment(
         'Fish Tank',
@@ -22,8 +42,12 @@ five.Board().on("ready", function() {
             output: require('path').resolve('./tmp/pictures/fish_tank.jpg'),
             timelapse: loggingFrequency
           })*/
-        }
+        },
+        io
       );
 });
 
-
+io.set('log level', 1);
+io.sockets.on('connection', function (socket) {
+  socket.emit('hello', 'world');
+});

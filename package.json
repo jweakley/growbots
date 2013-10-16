@@ -9,7 +9,8 @@
     "async": "",
     "multicouch": "",
     "change-case": "",
-    "raspicam": ""
+    "raspicam": "",
+    "socket.io": ""
   },
   "engines": {
       "node": "0.10.x"
