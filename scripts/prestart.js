@@ -1,13 +1,13 @@
 var fermata = require('fermata'),
     _ = require('lodash'),
     MultiCouch = require("multicouch"),
-    demeter = require('../lib/demeter.js'),
+    growbots = require('../lib/growbots.js'),
     myCouch = new MultiCouch({
       port: 5984,
       prefix: './tmp/couch'
     }),
     fermataServer = require('fermata').json('http://localhost:5984'),
-    databaseName = 'demeter',
+    databaseName = 'growbots',
     database = fermataServer(databaseName),
     async = require('async'),
     preflightCouchDB = function (callback) {

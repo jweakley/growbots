@@ -1,6 +1,6 @@
 {
   "author": "Joe Weakley",
-  "bugs": "https://github.com/jweakley/demeter/issues",
+  "bugs": "https://github.com/jweakley/growbots/issues",
   "description": "A node based aquaponics management system.",
   "dependencies": {
     "johnny-five": "",
@@ -15,10 +15,10 @@
   "engines": {
       "node": "0.10.x"
   },
-  "homepage": "https://github.com/jweakley/demeter",
+  "homepage": "https://github.com/jweakley/growbots",
   "license": "MIT",
   "main": "sample.js",
-  "name": "demeter",
+  "name": "growbots",
   "scripts": {
     "test": "node tests/test.js",
     "prestart": "node scripts/prestart.js",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jweakley/demeter.git"
+    "url": "git://github.com/jweakley/growbots.git"
   },
   "version": "0.0.0"
 }
